@@ -1,5 +1,6 @@
 #include "windows.h"
 #include <stdio.h>
+#include <errhandlingapi.h>
 
 int main()
 {
