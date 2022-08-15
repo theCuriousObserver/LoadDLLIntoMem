@@ -1,5 +1,11 @@
 # Source : https://stackoverflow.com/questions/252417/how-can-i-use-a-dll-file-from-python
 
+# To fix the error message: OSError: [WinError 193] %1 is not a valid Win32 application follow these steps:
+# Install Python 3 (32-bit) along with Python 3 (64-bit)
+# Run this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\python.exe loadDLL.py
+# Make an executable of this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pyinstaller.exe loadDLL.py
+# Install pyinstaller (32-bit) with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pip.exe install pyinstaller
+
 from ctypes import *
 from shutil import ExecError
 
@@ -74,8 +80,7 @@ def runDLL():
     dll_names.append(r'C:\Windows\SysWOW64\ntdll.dll')
     dll_names.append(r'C:\Windows\SysWOW64\kernel32.dll')
     dll_names.append(r'C:\Windows\SysWOW64\KernelBase.dll')
-    dll_names.append(
-        r'C:\Program Files\Bitdefender\Bitdefender Security\atcuf\dlls_265827483885032704\atcuf32.dll')
+    # dll_names.append(r'C:\Program Files\Bitdefender\Bitdefender Security\atcuf\dlls_265827483885032704\atcuf32.dll')
     dll_names.append(r'C:\Windows\SysWOW64\oleaut32.dll')
     dll_names.append(r'C:\Windows\SysWOW64\msvcp_win.dll')
     dll_names.append(r'C:\Windows\SysWOW64\ucrtbase.dll')
@@ -156,17 +161,17 @@ def runDLL():
     return dll_names
 
 
-# # DEBUG:
-# dll_names = runDLL()
-# dll_names = list(set(dll_names))  # Remove duplicate DLLs
-# for i in range(len(dll_names)):
-#     dll_check = dll_names[i]
-#     try:
-#         WinDLL(dll_check)
-#     except Exception as error:
-#         print(dll_check)
-#         print(error)
-#     continue
+# DEBUG:
+dll_names = runDLL()
+dll_names = list(set(dll_names))  # Remove duplicate DLLs
+for i in range(len(dll_names)):
+    dll_check = dll_names[i]
+    try:
+        WinDLL(dll_check)
+    except Exception as error:
+        print(dll_check)
+        print(error)
+    continue
 
 # Running the DLLs:
 while True:
