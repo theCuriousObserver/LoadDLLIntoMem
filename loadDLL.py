@@ -1,4 +1,6 @@
-# Source : https://stackoverflow.com/questions/252417/how-can-i-use-a-dll-file-from-python
+# With the help of this script, you can load series of DLLs that run in the memory once the program runs successfully as executable.
+
+# Reference: https://stackoverflow.com/questions/252417/how-can-i-use-a-dll-file-from-python
 
 # To fix the error message: OSError: [WinError 193] %1 is not a valid Win32 application follow these steps:
 # Install Python 3 (32-bit) along with Python 3 (64-bit)
