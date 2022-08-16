@@ -177,7 +177,7 @@ for i in range(len(dll_names)):
     try:
         WinDLL(dll_check)
     except Exception as error:
-        # print(dll_check)
+        print(dll_check)
         print(error)
     continue
 
