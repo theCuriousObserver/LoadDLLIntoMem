@@ -7,6 +7,7 @@
 # Run this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\python.exe loadDLL.py
 # Make an executable of this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pyinstaller.exe loadDLL.py
 # Install pyinstaller (32-bit) with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pip.exe install pyinstaller
+
 # wow64, wow64win, wow64cpu DLL errors can be fixed by running this script with python 64-bit. But then the 32-bit DLLs throw the following error: OSError: [WinError 193] %1 is not a valid Win32 application
 # Rest Cheat Engine DLLs throw the following error: "Could not find module (or one of its dependencies). Try using the full path with constructor syntax." Even after using os.add_dll_directory this error still appears.
 
