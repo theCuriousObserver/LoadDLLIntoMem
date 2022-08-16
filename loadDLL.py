@@ -5,11 +5,17 @@
 # Run this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\python.exe loadDLL.py
 # Make an executable of this script with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pyinstaller.exe loadDLL.py
 # Install pyinstaller (32-bit) with C:\Users\palla\AppData\Local\Programs\Python\Python310-32\Scripts\pip.exe install pyinstaller
+# wow64, wow64win, wow64cpu DLL errors can be fixed by running this script with python 64-bit. But then the 32-bit DLLs throw the following error: OSError: [WinError 193] %1 is not a valid Win32 application
+# Rest Cheat Engine DLLs throw the following error: "Could not find module (or one of its dependencies). Try using the full path with constructor syntax." Even after using os.add_dll_directory this error still appears.
 
+import os
 from ctypes import *
 from shutil import ExecError
 
 # Load DLLs into memory.
+
+os.add_dll_directory(r'C:\Program Files')
+os.add_dll_directory(r'C:\Windows')
 
 
 def runDLL():
@@ -152,7 +158,7 @@ def runDLL():
     dll_names.append(r'C:\Windows\SysWOW64\ntmarta.dll')
     # dll_names.append(r'C:\Program Files\Cheat Engine 7.4\lfs.dll')
     # dll_names.append(r'C:\Program Files\lib\lua\5.3\lfs.dll')
-    # dll_names.append(r'C:\Program Files\Cheat Engine 7.4\lfs.dllC:\Program Files\Cheat Engine 7.4\lfs53.dll')
+    # dll_names.append(r'C:\Program Files\Cheat Engine 7.4\lfs.dll')
     # dll_names.append(r'C:\Program Files\Cheat Engine 7.4\lfs53.dll')
     # dll_names.append(r'C:\Program Files\Cheat Engine 7.4\clibs32\lfs.dll')
     dll_names.append(r'C:\Windows\SysWOW64\TextInputFramework.dll')
@@ -169,15 +175,15 @@ for i in range(len(dll_names)):
     try:
         WinDLL(dll_check)
     except Exception as error:
-        print(dll_check)
+        # print(dll_check)
         print(error)
     continue
 
 # Running the DLLs:
-while True:
-    dll_names = runDLL()
-    dll_names = list(set(dll_names))  # Remove duplicate DLLs
-    for i in range(len(dll_names)):
-        dll_check = dll_names[i]
-        WinDLL(dll_check)
-        print("Code Running")
+# while True:
+#     dll_names = runDLL()
+#     dll_names = list(set(dll_names))  # Remove duplicate DLLs
+#     for i in range(len(dll_names)):
+#         dll_check = dll_names[i]
+#         WinDLL(dll_check)
+#         print("Code Running")
