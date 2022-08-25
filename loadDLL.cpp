@@ -18,13 +18,15 @@ int main()
         }
         cout << "Program Running" << endl;
 
-        FNPTR fnPtr = (FNPTR)GetProcAddress(hInstance, "main");
-        if (!fnPtr)
-        {
-            cout << "Failed to find main function" << endl;
-            return 1;
-        }
         FreeLibrary(hInstance);
     }
     return 0;
 }
+
+// Before FreeLibrary
+// FNPTR fnPtr = (FNPTR)GetProcAddress(hInstance, "main");
+// if (!fnPtr)
+// {
+//     cout << "Failed to find main function" << endl;
+//     return 1;
+// }
