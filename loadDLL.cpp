@@ -8,18 +8,18 @@ using namespace std;
 
 int main()
 {
+    HINSTANCE hInstance;
     while (true)
     {
-        HINSTANCE hInstance = LoadLibrary(_T("C:\\Windows\\System32\\ntdll.dll"));
+        hInstance = LoadLibrary(_T("C:\\Windows\\System32\\ntdll.dll"));
         if (!hInstance)
         {
             cout << "Failed to load dll" << endl;
             return 1;
         }
         cout << "Program Running" << endl;
-
-        FreeLibrary(hInstance);
     }
+    FreeLibrary(hInstance);
     return 0;
 }
 
