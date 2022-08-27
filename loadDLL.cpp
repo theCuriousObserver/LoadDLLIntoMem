@@ -18,8 +18,8 @@ int main()
             return 1;
         }
         cout << "Program Running" << endl;
+        FreeLibrary(hInstance);
     }
-    FreeLibrary(hInstance);
     return 0;
 }
 
